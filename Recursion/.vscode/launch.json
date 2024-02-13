@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Pankajsahare.04/OneDrive/Desktop/CODE/C++ VS/LEETCODE/Recursion",
-      "program": "c:/Users/Pankajsahare.04/OneDrive/Desktop/CODE/C++ VS/LEETCODE/Recursion/build/Debug/outDebug",
+      "cwd": "c:/Users/Pankajsahare.04/OneDrive/Desktop/CODE/C++ VS/LEETCODE/DSA-QUESTION/Recursion",
+      "program": "c:/Users/Pankajsahare.04/OneDrive/Desktop/CODE/C++ VS/LEETCODE/DSA-QUESTION/Recursion/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
