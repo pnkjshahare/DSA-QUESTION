@@ -1,3 +1,4 @@
+// linlist using recursion
 #include <bits/stdc++.h>
 using namespace std;
 class Node
@@ -39,6 +40,15 @@ int LengthOfLinkList(Node *head)
     }
     return cnt;
 }
+int LengthOfLinkListUsingRecursion(Node *head, int &len)
+{
+    if (head == nullptr)
+    {
+        return 0;
+    }
+    len++;
+    LengthOfLinkListUsingRecursion(head->next, len);
+}
 Node *RemoveHead(Node *head)
 {
     if (head == nullptr)
@@ -68,6 +78,41 @@ Node *print(Node *head)
         temp = temp->next;
     }
 }
+Node *printUsingRecursion(Node *head)
+{
+    if (head == NULL)
+    {
+        return 0;
+    }
+    cout << head->data << " ";
+    printUsingRecursion(head->next);
+}
+Node *reverse(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return head;
+    }
+    Node *lasthead = reverse(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return lasthead;
+}
+Node *reverseIterative(Node *head)
+{
+    Node *front;
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        front=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=front;
+    }
+    return prev;
+}
 int main()
 {
 
@@ -81,18 +126,13 @@ int main()
         arr.push_back(p);
     }
     Node *head = ArrayToLinkList(arr);
-    cout << "head of LinkList:" << head->data << endl;
-    Node *head1=head;
-    // cout << "Length of Linklist : ";
-    // cout << LengthOfLinkList(head);
-    // head = RemoveHead(head);
-    cout<<"complete Linklist :";
+    printUsingRecursion(head);
+    int len = 0;
+    // LengthOfLinkListUsingRecursion(head, len);
+    // cout << "\nlength of linklist :" << len;
+    // head = printUsingRecursion(head);
+    // printUsingRecursion(head);
+    reverseIterative(head);
     print(head);
-    cout<<"\nRemove Head : ";
-    // head = RemoveHead(head);
-    // print(head);
-    cout<<"\nremove tail :";
-//    head1=RemoveTail(head1);
-    // print(head1);
     return 0;
 }
