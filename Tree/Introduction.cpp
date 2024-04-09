@@ -59,6 +59,44 @@ void postorder(Node *root){
     postorder(root->right);
     cout<<root->data<<" ";
 }
+int levelOrder(Node * root){
+    if(root==NULL)return 0;
+    queue<Node*>q;
+    q.push(root);
+    while(!q.empty()){
+        int size=q.size();
+        for(int i=0;i<size;i++){
+            Node* node=q.front();
+            q.pop();
+            if(node->left!=NULL){
+                q.push(node->left);
+            }
+            if(node->right!=NULL){
+                q.push(node->right);
+            }
+            cout<<node->data<<" ";
+        }
+        cout<<endl;
+    }
+}
+int preorderIterative(Node *root){
+    if(root==NULL){
+        return 0;
+    }
+    stack<Node*>st;
+    st.push(root);
+    while(!st.empty()){
+        root=st.top();
+        st.pop();
+        cout<<root->data<<" ";
+        if(root->right!=NULL){
+            st.push(root->right);
+        }
+        if(root->left!=NULL){
+            st.push(root->left);
+        }
+    }
+}
 int main()
 {
     // 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 7 -1 -1
@@ -72,5 +110,11 @@ int main()
     cout << endl;
     cout << "postorder Traversal: ";
     postorder(root);
+    cout<<endl;
+    cout<<"Levelorder :"<<endl;
+    levelOrder(root);
+    cout<<endl;
+    cout<<"Preorder Iterative :";
+    preorderIterative(root);
     return 0;
 }
