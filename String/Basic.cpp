@@ -30,18 +30,18 @@ int main(){
     // cout<<"string is empty";
    }
 
-   //+++++++++++ Erase ++++++++++++++
+//+++++++++++ Erase ++++++++++++++
 s1="pankajShahare";
    s1.erase(2,5);
    cout<<s1;
 
 cout<<endl;
-   //++++++++find String+++++++++
+//++++++++find String+++++++++
 
    cout<<s1.find("are");
    //give first index
 cout<<endl;
-   //+++++++++substring ++++++++++
+//+++++++++substring ++++++++++
 
    cout<<s1.substr(2,5);
 
