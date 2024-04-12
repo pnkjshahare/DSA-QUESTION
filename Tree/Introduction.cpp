@@ -97,6 +97,23 @@ int preorderIterative(Node *root){
         }
     }
 }
+void Inorder(Node * root){
+    Node * node=root;
+    stack<Node*>st;
+    while(true){
+        if(node!=NULL){
+            st.push(node);
+            node=node->left;
+        }
+        else{
+            if(st.empty()==true)break;
+            node=st.top();
+            st.pop();
+            cout<<node->data<<" ";
+            node=node->right;
+        }
+    }
+}
 int main()
 {
     // 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 7 -1 -1
@@ -116,5 +133,8 @@ int main()
     cout<<endl;
     cout<<"Preorder Iterative :";
     preorderIterative(root);
+    cout<<endl;
+    cout<<"Inorder traversal :";
+    inorder(root);
     return 0;
 }
